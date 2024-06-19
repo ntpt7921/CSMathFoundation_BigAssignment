@@ -1,0 +1,30 @@
+---
+### METADATA
+title: k-th shortest path exercise
+subtitle: Mathematical Foundation for Computer Science (CO5263)
+description: This report details the work implementing the requirements of the exercise.
+author:
+- Nguyễn Trần Phước Thành - 1912059
+- Gia Vân - xxxxxxx
+date: This will be automated
+subject: Computer science, graph theory, path finding, k-th shortest path finding.
+
+### DOCUMENT CONFIGURATION
+documentclass: article
+classoption:
+  - a4paper
+  - titlepage
+geometry:
+  - margin=1in
+numbersections: true
+colorlinks: true
+
+### CITATION
+reference-section-title: References
+link-citations: true
+
+### FRONT MATTERS
+toc: true
+toc-depth: 2
+lof: false
+lot: false

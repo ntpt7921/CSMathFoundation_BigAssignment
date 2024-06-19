@@ -1,0 +1,31 @@
+---
+### BUILD CONFIGURATION
+from: markdown
+input-file:
+  - 01_map_data_init.md
+  - 02_shortest_path_algo_perf_compare.md
+  - 03_user_app_k_shorest_path.md
+  - 04_google_maps_result_compare.md
+metadata-file: metadata.yaml
+verbosity: WARNING
+fail-if-warnings: true
+# filters:
+
+### INCLUDES
+#include-in-header:
+#include-before-body:
+#include-after-body:
+resource-path:
+  - .
+
+### OPTION FOR GENERAL WRITER
+highlight-style: tango
+
+### OPTION FOR SPECIFIC WRITER
+#listings: true
+
+### CITATION
+citeproc: true
+bibliography:
+  - bib/bibliography.bib
+csl: bib/acm.csl

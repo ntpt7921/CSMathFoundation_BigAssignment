@@ -1,0 +1,9 @@
+osmnx
+flask
+flask-cors
+# below are for running osmnx-examples
+ipykernel
+matplotlib
+scikit-learn
+scipy
+# for user app backend

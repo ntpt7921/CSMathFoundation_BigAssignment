@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    defaults:
+      run:
+        shell: bash -elo pipefail {0}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Create environment with Micromamba
+        uses: mamba-org/setup-micromamba@v1
+        with:
+          cache-downloads: true
+          cache-environment: true
+          environment-file: environment.yml
+          post-cleanup: none
+
+      - name: Lint notebooks
+        run: |
+          SKIP=no-commit-to-branch pre-commit run --all-files
+
+      - name: Test notebooks
+        run: |
+          cd ./notebooks
+          rm -r -f *.py
+          jupyter nbconvert --to python *.ipynb
+          for f in *.py; do ipython "$f"; done
+          rm -r -f *.py
